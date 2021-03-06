@@ -98,6 +98,7 @@ def register2(email,invite):
         time.sleep(5)
     except Exception as e:
         print(e)
+        telegram_bot("梯子", '邀请失败！')
 def telegram_bot(title, content):
     print("\n")
     tg_bot_token = TG_BOT_TOKEN
