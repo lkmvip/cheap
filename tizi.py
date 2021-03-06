@@ -4,14 +4,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
-'''
-chrome_opt = webdriver.ChromeOptions()
-chrome_opt.add_argument('--headless')  # 无界面化.
-chrome_opt.add_argument('--disable-gpu')  # 配合上面的无界面化.
-chrome_opt.add_argument('--window-size=1366,768')  # 设置窗口大小, 窗口大小会有影响.
-chrome_opt.add_argument("--no-sandbox")
-driver = webdriver.Chrome(options=chrome_opt)
-'''
 TG_BOT_TOKEN = ''           # telegram bot token 自行申请
 TG_USER_ID = ''             # telegram 用户ID
 def get_email():
@@ -64,6 +56,7 @@ def register(email):
         Driver.get('https://www.zionladdero.com/register')
         #driver.switch_to.frame('//*[@id="register"]/div/div')
         WebDriverWait(Driver,10).until(EC.element_to_be_clickable((By.ID, 'register')))
+        time.sleep(5)
         Driver.find_element_by_xpath('//*[@id="id_username"]').send_keys(email)
         Driver.find_element_by_xpath('//*[@id="id_password1"]').send_keys('refddr265rt!')
         Driver.find_element_by_xpath('//*[@id="id_password2"]').send_keys('refddr265rt!')
