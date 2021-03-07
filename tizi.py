@@ -132,6 +132,6 @@ def main2(invite):
     return True
 if __name__ == "__main__":
     with open('invite.txt','r') as f:
-        invite=random.choice(f.readlines()).replace('\n','')
+        invite=os.environ["INVITECODE"]
         print(invite)
         main2(invite)
