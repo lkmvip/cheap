@@ -7,8 +7,8 @@ from selenium.webdriver.chrome.options import Options
 TG_BOT_TOKEN = ''           # telegram bot token 自行申请
 TG_USER_ID = ''             # telegram 用户ID
 def get_email():
-    a = random.randint(11, 99)
-    b = random.randint(0, 20)
+    a = random.randint(11, 999)
+    b = random.randint(0, 200)
     email = 'varytmp+{}uu{}d@gmail.com'.format(a, b)
     return email
 def send(email):
