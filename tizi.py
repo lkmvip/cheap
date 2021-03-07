@@ -41,37 +41,7 @@ def get_num(email):
     except Exception as e:
         print(e)
         Driver.close()
-
-
-def register(email):
-    global Driver
-    chrome_opt = webdriver.ChromeOptions()
-    chrome_opt.add_argument('--headless')  # 无界面化.
-    chrome_opt.add_argument('--disable-gpu')  # 配合上面的无界面化.
-    chrome_opt.add_argument('--window-size=1366,768')  # 设置窗口大小, 窗口大小会有影响.
-    chrome_opt.add_argument("--no-sandbox")
-    Driver = webdriver.Chrome(options=chrome_opt)
-    try:
-        #Driver = webdriver.Chrome()
-        Driver.get('https://www.zionladdero.com/register')
-        #driver.switch_to.frame('//*[@id="register"]/div/div')
-        WebDriverWait(Driver,10).until(EC.element_to_be_clickable((By.ID, 'register')))
-        time.sleep(5)
-        Driver.find_element_by_xpath('//*[@id="id_username"]').send_keys(email)
-        Driver.find_element_by_xpath('//*[@id="id_password1"]').send_keys('refddr265rt!')
-        Driver.find_element_by_xpath('//*[@id="id_password2"]').send_keys('refddr265rt!')
-        Driver.find_element_by_xpath('//*[@id="register"]/div/div/div[2]/form/div[5]/button').click()
-        time.sleep(2)
-        Driver.find_element_by_xpath('/html/body/div[11]/div/div[4]/div/button').click()
-        time.sleep(1)
-        Driver.find_element_by_xpath('//*[@id="send-confirm-email"]').click()
-        ssr=Driver.find_element_by_xpath('/ html / body / div[1] / div / div / div[4] / div / div / p / strong[1]').text
-        print(ssr)
-        time.sleep(5)
-        return ssr
-    except Exception as e :
-        print(e)
-def register2(email,invite):
+def register(email,invite):
     global Driver
     chrome_opt = webdriver.ChromeOptions()
     chrome_opt.add_argument('--headless')  # 无界面化.
@@ -115,23 +85,15 @@ def telegram_bot(title, content):
     response = requests.post(
         url='https://api.telegram.org/bot%s/sendMessage' % (tg_bot_token), data=send_data)
     print(response.text)
-def main():
-    email=get_email()
-    ssr=register(email)
-    time.sleep(5)
-    get_num(email)
-    return ssr
 
 
-def main2(invite):
+def main(invite):
     email = get_email()
-
-    register2(email,invite)
+    register(email,invite)
     time.sleep(5)
     get_num(email)
     return True
 if __name__ == "__main__":
-    with open('invite.txt','r') as f:
-        invite=os.environ["INVITECODE"]
-        print(invite)
-        main2(invite)
+    invite=os.environ["INVITECODE"]
+    print(invite)
+    main(invite)
