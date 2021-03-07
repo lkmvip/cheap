@@ -6,7 +6,7 @@
     TG_BOT_TOKEN TG机器人token
   
     TG_USER_ID 你的ID  #可以参考https://longnight.github.io/2018/12/12/Telegram-Bot-notifications
+    
+    INVITECODE 你的邀请链接
 
-3.修改invitecode.txt文件，将你的邀请链接填写进去
-
-4.运行Actions,可以根据需求设定cron（建议一天2次）
+3.运行Actions,可以根据需求设定cron（建议一天2次）
