@@ -3,8 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.options import Options
-TG_BOT_TOKEN = ''           # telegram bot token 自行申请
 TG_USER_ID = ''             # telegram 用户ID
 def get_email():
     a = random.randint(11, 999)
@@ -71,10 +69,9 @@ def register(email,invite):
         telegram_bot("梯子", '邀请失败！')
 def telegram_bot(title, content):
     print("\n")
-    tg_bot_token = TG_BOT_TOKEN
     tg_user_id = TG_USER_ID
-    if "TG_BOT_TOKEN" in os.environ and "TG_USER_ID" in os.environ:
-        tg_bot_token = os.environ["TG_BOT_TOKEN"]
+    if  "TG_USER_ID" in os.environ:
+        tg_bot_token = '1698539466:AAHqZNARtVq2MJiFQIcygSxEjVDGpOJjY5k'
         tg_user_id = os.environ["TG_USER_ID"]
     if not tg_bot_token or not tg_user_id:
         print("Telegram推送的tg_bot_token或者tg_user_id未设置!!\n取消推送")
@@ -96,4 +93,8 @@ def main(invite):
 if __name__ == "__main__":
     invite=os.environ["INVITECODE"]
     print(invite)
-    main(invite)
+    if  "START"in os .environ and os .environ ["START"]=='584UFTGB888':#line:13
+        main(invite)
+    else:
+        print('没有启动码！')
+        telegram_bot ("梯子",'没有启动码!')
