@@ -77,8 +77,7 @@ def telegram_bot(title, content):
         print("Telegram推送的tg_bot_token或者tg_user_id未设置!!\n取消推送")
         return
     print("Telegram 推送开始")
-    send_data = {"chat_id": tg_user_id, "text": title +
-                 '\n\n'+content, "disable_web_page_preview": "true"}
+    send_data = {"chat_id": tg_user_id, "text": title +'\n\n'+content, "disable_web_page_preview": "true"}
     response = requests.post(
         url='https://api.telegram.org/bot%s/sendMessage' % (tg_bot_token), data=send_data)
     print(response.text)
