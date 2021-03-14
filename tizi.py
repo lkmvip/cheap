@@ -5,8 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 TG_USER_ID = ''             # telegram 用户ID
 def get_email():
-    a = random.randint(11, 999)
-    b = random.randint(0, 200)
+    a = random.randint(11, 9999)
+    b = random.randint(0, 2000)
     email = 'varytmp+{}uu{}d@gmail.com'.format(a, b)
     return email
 def send(email):
