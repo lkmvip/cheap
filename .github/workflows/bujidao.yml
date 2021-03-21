@@ -1,11 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: 布吉岛
 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   schedule:
-    - cron: '0 */24 * * *'
+    - cron: '0 5 */15 * *'
   watch:
     types: [started]
   # Allows you to run this workflow manually from the Actions tab
@@ -41,9 +41,8 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: 'Working'
         run: |
-          python3.7 tizi.py
+          python3.7 bujidao.py
         env:
-          START: ${{secrets.START}} # tg通知token
           TG_BOT_TOKEN:  ${{secrets.TG_BOT_TOKEN}}
           TG_USER_ID:  ${{secrets.TG_USER_ID}}    # tg通知id
           INVITECODE: ${{SECRETS.INVITECODE2}}
